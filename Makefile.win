@@ -1,0 +1,46 @@
+# Project: Proyecto1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = entsal.o p5.o punto.o elemento.o tanque.o alien.o disparo.o
+LINKOBJ  = entsal.o p5.o punto.o elemento.o tanque.o alien.o disparo.o
+LIBS     = -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = practica_5.exe
+CXXFLAGS = $(CXXINCS) -std=gnu++11 -Wall -Wextra
+CFLAGS   = $(INCS) -std=gnu++11 -Wall -Wextra
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+entsal.o: entsal.cpp
+	$(CPP) -c entsal.cpp -o entsal.o $(CXXFLAGS)
+
+p5.o: p5.cpp
+	$(CPP) -c p5.cpp -o p5.o $(CXXFLAGS)
+
+punto.o: punto.cpp
+	$(CPP) -c punto.cpp -o punto.o $(CXXFLAGS)
+
+elemento.o: elemento.cpp
+	$(CPP) -c elemento.cpp -o elemento.o $(CXXFLAGS)
+
+tanque.o: tanque.cpp
+	$(CPP) -c tanque.cpp -o tanque.o $(CXXFLAGS)
+
+alien.o: alien.cpp
+	$(CPP) -c alien.cpp -o alien.o $(CXXFLAGS)
+
+disparo.o: disparo.cpp
+	$(CPP) -c disparo.cpp -o disparo.o $(CXXFLAGS)
